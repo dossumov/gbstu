@@ -28,9 +28,8 @@ const Navbar = () => {
           </div>
           <div className="hidden md:block">
             <h1 className="text-lg font-bold text-kazakh-dark">
-              Trade Union of Civil Servants
+              Отраслевой профессиональный союз работников государственных, банковских учреждений и общественного обслуживания Республики Казахстан
             </h1>
-            <p className="text-sm text-gray-500">Republic of Kazakhstan</p>
           </div>
         </Link>
         
