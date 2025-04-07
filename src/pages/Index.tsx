@@ -1,14 +1,390 @@
-// Update this page (the content is just a fallback if you fail to update the page)
 
-const Index = () => {
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { ArrowRight, FileText, Book, Users, Check, Calendar, Phone } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+
+// Sample news data
+const newsList = [
+  {
+    id: 1,
+    title: "New Worker Protection Legislation Passed",
+    date: "April 5, 2025",
+    excerpt: "The government approved new legislation enhancing civil servant protections in workplace environments.",
+    image: "https://images.unsplash.com/photo-1551038247-3d9af20df552?q=80&w=800"
+  },
+  {
+    id: 2,
+    title: "Upcoming Pension Reform Workshop",
+    date: "April 3, 2025",
+    excerpt: "Join our pension reform workshop to learn about changes and how they affect your benefits.",
+    image: "https://images.unsplash.com/photo-1466442929976-97f336a657be?q=80&w=800"
+  },
+  {
+    id: 3,
+    title: "Annual Member Conference Announced",
+    date: "March 30, 2025",
+    excerpt: "Save the date for our annual member conference taking place September 15-17 in Astana.",
+    image: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?q=80&w=800"
+  }
+];
+
+const events = [
+  {
+    id: 1,
+    title: "Legal Workshop: New Labor Regulations",
+    date: "April 15, 2025",
+    location: "Astana, Conference Hall B"
+  },
+  {
+    id: 2,
+    title: "Member Benefits Information Session",
+    date: "April 22, 2025",
+    location: "Almaty, Regional Office"
+  },
+  {
+    id: 3,
+    title: "Leadership Training Program",
+    date: "May 5-7, 2025",
+    location: "Shymkent, Training Center"
+  }
+];
+
+const HomePage = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  
+  const heroSlides = [
+    {
+      title: "Supporting Kazakhstan's Civil Servants",
+      subtitle: "Advocating for the rights and well-being of public service professionals",
+      image: "https://images.unsplash.com/photo-1493397212122-2b85dda8106b?q=80&w=1600"
+    },
+    {
+      title: "Join Our Growing Community",
+      subtitle: "Connect with peers, access resources, and advance your career",
+      image: "https://images.unsplash.com/photo-1551038247-3d9af20df552?q=80&w=1600"
+    },
+    {
+      title: "Building a Better Future Together",
+      subtitle: "Working toward improved conditions and professional development",
+      image: "https://images.unsplash.com/photo-1466442929976-97f336a657be?q=80&w=1600"
+    }
+  ];
+  
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+    }, 6000);
+    return () => clearInterval(timer);
+  }, []);
+  
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen flex flex-col">
+      <Navbar />
+      
+      {/* Hero Section */}
+      <section className="relative bg-kazakh-dark h-[70vh] min-h-[500px] overflow-hidden">
+        {heroSlides.map((slide, index) => (
+          <div 
+            key={index} 
+            className={`absolute inset-0 transition-opacity duration-1000 ${
+              currentSlide === index ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            <div 
+              className="absolute inset-0 bg-cover bg-center" 
+              style={{ backgroundImage: `url(${slide.image})` }}
+            >
+              <div className="absolute inset-0 bg-black/40"></div>
+            </div>
+            <div className="container-custom h-full flex flex-col justify-center relative z-10 animate-slide-in">
+              <div className="max-w-2xl">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">{slide.title}</h1>
+                <p className="text-xl text-white/90 mb-8">{slide.subtitle}</p>
+                <div className="flex flex-wrap gap-4">
+                  <Button className="btn-secondary">Join Us Today</Button>
+                  <Button variant="outline" className="bg-transparent border-white text-white hover:bg-white/20">
+                    Learn More
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+        
+        {/* Slide indicators */}
+        <div className="absolute bottom-8 left-0 right-0 flex justify-center gap-2 z-20">
+          {heroSlides.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentSlide(index)}
+              className={`w-3 h-3 rounded-full transition-all ${
+                currentSlide === index ? "bg-white scale-125" : "bg-white/50"
+              }`}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
+        </div>
+      </section>
+      
+      {/* Mission Statement Section */}
+      <section className="section-padding bg-white">
+        <div className="container-custom">
+          <div className="max-w-3xl mx-auto text-center">
+            <div className="mb-6">
+              <span className="inline-block px-4 py-1 bg-kazakh-blue/10 text-kazakh-blue rounded-full text-sm font-medium mb-4">
+                Our Mission
+              </span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-kazakh-dark mb-6">
+              Empowering and Protecting Civil Servants Across Kazakhstan
+            </h2>
+            <p className="text-gray-600 text-lg mb-8">
+              The Trade Union of Civil Servants of Kazakhstan is committed to improving working conditions, 
+              advocating for fair policies, and providing valuable resources to our members. 
+              We represent the interests of public service professionals at all levels of government.
+            </p>
+            <div className="flex justify-center">
+              <Button variant="outline" className="btn-outline flex items-center gap-2">
+                <span>About Our Union</span>
+                <ArrowRight className="h-4 w-4" />
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      {/* Key Services Section */}
+      <section className="section-padding bg-gray-50">
+        <div className="container-custom">
+          <div className="text-center mb-12">
+            <span className="inline-block px-4 py-1 bg-kazakh-blue/10 text-kazakh-blue rounded-full text-sm font-medium mb-4">
+              Member Benefits
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold text-kazakh-dark">
+              How We Support Our Members
+            </h2>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <Card className="card border-t-4 border-t-kazakh-blue">
+              <CardContent className="pt-6">
+                <div className="w-12 h-12 bg-kazakh-blue/10 rounded-lg flex items-center justify-center mb-4">
+                  <FileText className="h-6 w-6 text-kazakh-blue" />
+                </div>
+                <h3 className="text-xl font-bold mb-3">Legal Representation</h3>
+                <p className="text-gray-600 mb-4">
+                  Expert legal advice and representation for workplace issues, disciplinary proceedings, 
+                  and employment disputes.
+                </p>
+                <Link to="/services" className="text-kazakh-blue font-medium flex items-center gap-1 hover:underline">
+                  <span>Learn more</span>
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              </CardContent>
+            </Card>
+            
+            <Card className="card border-t-4 border-t-kazakh-gold">
+              <CardContent className="pt-6">
+                <div className="w-12 h-12 bg-kazakh-gold/10 rounded-lg flex items-center justify-center mb-4">
+                  <Book className="h-6 w-6 text-kazakh-gold" />
+                </div>
+                <h3 className="text-xl font-bold mb-3">Professional Development</h3>
+                <p className="text-gray-600 mb-4">
+                  Access to training workshops, educational resources, and career advancement opportunities 
+                  tailored for civil servants.
+                </p>
+                <Link to="/services" className="text-kazakh-blue font-medium flex items-center gap-1 hover:underline">
+                  <span>Learn more</span>
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              </CardContent>
+            </Card>
+            
+            <Card className="card border-t-4 border-t-kazakh-blue">
+              <CardContent className="pt-6">
+                <div className="w-12 h-12 bg-kazakh-blue/10 rounded-lg flex items-center justify-center mb-4">
+                  <Users className="h-6 w-6 text-kazakh-blue" />
+                </div>
+                <h3 className="text-xl font-bold mb-3">Collective Bargaining</h3>
+                <p className="text-gray-600 mb-4">
+                  Strong representation in negotiations with government entities to secure better 
+                  wages, benefits, and working conditions.
+                </p>
+                <Link to="/services" className="text-kazakh-blue font-medium flex items-center gap-1 hover:underline">
+                  <span>Learn more</span>
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              </CardContent>
+            </Card>
+          </div>
+          
+          <div className="mt-12 text-center">
+            <Link to="/services">
+              <Button className="btn-primary">View All Services</Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+      
+      {/* Latest News Section */}
+      <section className="section-padding bg-white">
+        <div className="container-custom">
+          <div className="flex justify-between items-center mb-12">
+            <div>
+              <span className="inline-block px-4 py-1 bg-kazakh-blue/10 text-kazakh-blue rounded-full text-sm font-medium mb-4">
+                Stay Informed
+              </span>
+              <h2 className="text-3xl md:text-4xl font-bold text-kazakh-dark">
+                Latest News & Updates
+              </h2>
+            </div>
+            <Link to="/news" className="hidden md:flex text-kazakh-blue font-medium items-center gap-1 hover:underline">
+              <span>View all news</span>
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {newsList.map((news) => (
+              <Card key={news.id} className="card overflow-hidden hover:shadow-lg transition-all flex flex-col">
+                <div className="h-48 overflow-hidden">
+                  <img 
+                    src={news.image} 
+                    alt={news.title}
+                    className="w-full h-full object-cover transition-transform hover:scale-105"
+                  />
+                </div>
+                <CardContent className="py-6 flex flex-col flex-1">
+                  <p className="text-sm text-gray-500 mb-2">{news.date}</p>
+                  <h3 className="text-xl font-bold mb-3">{news.title}</h3>
+                  <p className="text-gray-600 mb-4 flex-grow">{news.excerpt}</p>
+                  <Link to={`/news/${news.id}`} className="text-kazakh-blue font-medium flex items-center gap-1 hover:underline mt-auto">
+                    <span>Read more</span>
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+          
+          <div className="mt-8 text-center md:hidden">
+            <Link to="/news">
+              <Button variant="outline" className="btn-outline">View All News</Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+      
+      {/* Events & Join Section */}
+      <section className="section-padding bg-gray-50">
+        <div className="container-custom">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {/* Upcoming Events */}
+            <div>
+              <span className="inline-block px-4 py-1 bg-kazakh-blue/10 text-kazakh-blue rounded-full text-sm font-medium mb-4">
+                Save the Date
+              </span>
+              <h2 className="text-3xl font-bold text-kazakh-dark mb-6">
+                Upcoming Events
+              </h2>
+              
+              <div className="space-y-4">
+                {events.map((event) => (
+                  <Card key={event.id} className="card flex gap-4">
+                    <div className="bg-kazakh-blue/10 rounded p-3 flex flex-col items-center justify-center min-w-16 h-16">
+                      <Calendar className="h-5 w-5 text-kazakh-blue" />
+                    </div>
+                    <CardContent className="p-0 py-2 flex-grow">
+                      <h3 className="font-semibold">{event.title}</h3>
+                      <p className="text-sm text-gray-500">{event.date}</p>
+                      <p className="text-sm text-gray-500">{event.location}</p>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+              
+              <div className="mt-6">
+                <Link to="/events">
+                  <Button variant="outline" className="btn-outline flex items-center gap-2">
+                    <span>View Calendar</span>
+                    <ArrowRight className="h-4 w-4" />
+                  </Button>
+                </Link>
+              </div>
+            </div>
+            
+            {/* Become a Member */}
+            <div className="bg-kazakh-blue text-white p-8 rounded-lg relative overflow-hidden">
+              <div className="relative z-10">
+                <span className="inline-block px-4 py-1 bg-white/20 text-white rounded-full text-sm font-medium mb-4">
+                  Join Our Community
+                </span>
+                <h2 className="text-3xl font-bold mb-6">
+                  Become a Member Today
+                </h2>
+                <p className="text-white/90 mb-6">
+                  Join our growing community of 15,000+ civil servants and enjoy exclusive benefits, resources,
+                  and representation. Together, we can achieve more.
+                </p>
+                
+                <ul className="space-y-3 mb-8">
+                  <li className="flex items-center gap-2">
+                    <Check className="h-5 w-5 text-kazakh-gold" />
+                    <span>Legal protection and assistance</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="h-5 w-5 text-kazakh-gold" />
+                    <span>Professional development opportunities</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="h-5 w-5 text-kazakh-gold" />
+                    <span>Healthcare and wellness programs</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="h-5 w-5 text-kazakh-gold" />
+                    <span>Special discounts and financial benefits</span>
+                  </li>
+                </ul>
+                
+                <div className="flex flex-wrap gap-4">
+                  <Button className="btn-secondary">Join Now</Button>
+                  <Button variant="outline" className="bg-transparent border-white text-white hover:bg-white/20">
+                    Learn More
+                  </Button>
+                </div>
+              </div>
+              
+              {/* Background Pattern */}
+              <div className="absolute top-0 right-0 w-96 h-96 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iODAiIHZpZXdCb3g9IjAgMCA4MCA4MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIj48cGF0aCBkPSJNMTQgMTZIOS4zMzMzMzMzM3YtNS42NjY2NjY2N0gxNFYxNnptLS42NjY2NjY3LTZoLTRWNS4zMzMzMzMzM2g0djQuNjY2NjY2NjdoLS4wMDAwMDAyNXpNNi42NjY2NjY2NyAxNkgydjguNjY2NjY2N0g2LjY2NjY2NjY3VjE2ek0yIDQuNjY2NjY2NjdoMy4zMzMzMzMzM3YtLjMzMzMzMzM0SDJWNHYuNjY2NjY2Njd6Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-20 transform rotate-45 translate-x-20 -translate-y-20"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      {/* Call to Action */}
+      <section className="section-padding bg-white">
+        <div className="container-custom">
+          <div className="bg-gradient-to-r from-kazakh-blue to-blue-600 rounded-xl p-8 md:p-12 text-white text-center">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">Have Questions About Membership?</h2>
+            <p className="text-white/90 max-w-2xl mx-auto mb-8">
+              Our team is ready to answer any questions you may have about joining the union
+              or the benefits of membership. Reach out to us today!
+            </p>
+            <Button className="btn-secondary flex items-center gap-2 mx-auto">
+              <Phone className="h-5 w-5" />
+              <span>Contact Us</span>
+            </Button>
+          </div>
+        </div>
+      </section>
+      
+      <Footer />
     </div>
   );
 };
 
-export default Index;
+export default HomePage;

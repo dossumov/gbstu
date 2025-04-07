@@ -1,3 +1,6 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -13,10 +16,10 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
+    --primary: 195 100% 39.8%; /* #00AFCA */
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 210 40% 96.1%;
+    --secondary: 45 96% 53.5%; /* #FAC917 */
     --secondary-foreground: 222.2 47.4% 11.2%;
 
     --muted: 210 40% 96.1%;
@@ -35,19 +38,12 @@
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -96,6 +92,48 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-inter;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-inter font-bold;
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply py-16 px-4 md:px-8 lg:px-12;
+  }
+  
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold text-kazakh-dark mb-8 relative pb-4 after:absolute after:content-[""] after:left-0 after:bottom-0 after:h-1 after:w-16 after:bg-kazakh-gold;
+  }
+
+  .btn-primary {
+    @apply bg-kazakh-blue hover:bg-kazakh-blue/90 text-white rounded-md px-6 py-3 font-medium transition-colors;
+  }
+  
+  .btn-secondary {
+    @apply bg-kazakh-gold hover:bg-kazakh-gold/90 text-kazakh-dark rounded-md px-6 py-3 font-medium transition-colors;
+  }
+
+  .btn-outline {
+    @apply border border-kazakh-blue text-kazakh-blue hover:bg-kazakh-blue hover:text-white rounded-md px-6 py-3 font-medium transition-colors;
+  }
+
+  .container-custom {
+    @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .nav-link {
+    @apply text-gray-700 hover:text-kazakh-blue transition-colors p-2;
+  }
+
+  .nav-link-active {
+    @apply text-kazakh-blue font-medium;
+  }
+  
+  .card {
+    @apply bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow;
   }
 }
