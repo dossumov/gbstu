@@ -23,14 +23,11 @@ const Navbar = () => {
     <nav className="bg-white shadow-sm sticky top-0 z-50">
       <div className="container-custom flex justify-between items-center h-20">
         <Link to="/" className="flex items-center">
-          <div className="w-12 h-12 bg-kazakh-blue rounded-full flex items-center justify-center text-white font-bold text-xl mr-3">
-            TU
-          </div>
           <div className="hidden md:block">
             <img 
               src="/lovable-uploads/b68f6104-79af-4007-a0f9-95a12707a530.png" 
               alt="Отраслевой профессиональный союз работников государственных, банковских учреждений и общественного обслуживания"
-              className="h-10"
+              className="h-14"
             />
           </div>
         </Link>
