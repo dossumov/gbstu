@@ -173,7 +173,7 @@ const HomePage = () => {
                 Представляем и отстаиваем права членов профсоюза в органах власти, судах и перед работодателями.
                 </p>
                 <Link to="/services" className="text-kazakh-blue font-medium flex items-center gap-1 hover:underline">
-                  <span>Узнать больше</span>
+                  <span>Learn more</span>
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </CardContent>
@@ -189,7 +189,7 @@ const HomePage = () => {
                 Являемся стороной социального партнерства при подписании коллективных договоров и отраслевых соглашений..
                 </p>
                 <Link to="/services" className="text-kazakh-blue font-medium flex items-center gap-1 hover:underline">
-                  <span>Узнать больше</span>
+                  <span>Learn more</span>
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </CardContent>
@@ -205,7 +205,7 @@ const HomePage = () => {
                 Осуществляем профсоюзный контроль за условиями труда, охраной труда и безопасностью на рабочих местах.
                 </p>
                 <Link to="/services" className="text-kazakh-blue font-medium flex items-center gap-1 hover:underline">
-                  <span>Узнать больше</span>
+                  <span>Learn more</span>
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </CardContent>
@@ -359,7 +359,7 @@ const HomePage = () => {
             </p>
             <Button className="btn-secondary flex items-center gap-2 mx-auto">
               <Phone className="h-5 w-5" />
-              <span>Свяжитесь с нами</span>
+              <span>Написать нам</span>
             </Button>
           </div>
         </div>

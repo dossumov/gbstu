@@ -10,24 +10,24 @@ import Footer from "@/components/Footer";
 const newsList = [
   {
     id: 1,
-    title: "Встреча в Маркакольском районе ВКО",
-    date: "4 апреля 2025",
-    excerpt: "Председатель ВКОФ ОО «Казахстанский отраслевой профсоюз работников культуры, спорта, туризма и информации» Т. Тусупбеков и председатель ВКОФ ОО «Отраслевой профсоюз….",
-    image: "https://gbstu.kz/wp-content/uploads/2025/04/1-1-720x405.jpg"
+    title: "New Worker Protection Legislation Passed",
+    date: "April 5, 2025",
+    excerpt: "The government approved new legislation enhancing civil servant protections in workplace environments.",
+    image: "https://images.unsplash.com/photo-1551038247-3d9af20df552?q=80&w=800"
   },
   {
     id: 2,
-    title: "Отчётно-выборная конференция Жамбылского филиала",
-    date: "28 марта 2025",
-    excerpt: "28 марта 2025 года состоялась XXVIII отчётно-выборная конференция Жамбылского филиала Отраслевого профсоюза работников государственных, банковских учреждений и общественного обслуживания «Қызмет».…",
-    image: "https://gbstu.kz/wp-content/uploads/2025/04/ecbed31e-7b5d-4091-a28a-f242e0b64269-720x405.jpg"
+    title: "Upcoming Pension Reform Workshop",
+    date: "April 3, 2025",
+    excerpt: "Join our pension reform workshop to learn about changes and how they affect your benefits.",
+    image: "https://images.unsplash.com/photo-1466442929976-97f336a657be?q=80&w=800"
   },
   {
     id: 3,
-    title: "Соблюдение рабочего времени находится на контроле",
-    date: "27 марта 2025",
-    excerpt: "Департаментом Агентства Республики Казахстан по делам государственной службы по Карагандинской области совместно с заместителем председателя областного Профсоюзного Центра Федерации профсоюзов…",
-    image: "https://gbstu.kz/wp-content/uploads/2025/03/486a56b2-cb6f-4d62-9313-b3096dcf0e92-1-720x405.jpg"
+    title: "Annual Member Conference Announced",
+    date: "March 30, 2025",
+    excerpt: "Save the date for our annual member conference taking place September 15-17 in Astana.",
+    image: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?q=80&w=800"
   }
 ];
 
@@ -56,13 +56,21 @@ const HomePage = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   
   const heroSlides = [
-    
     {
-      title: "Защищаем ваши права",
-      subtitle: "Мы отстаиваем ваши трудовые права, гарантируем справедливость и помогаем в решении конфликтов.",
-      image: "http://gbstu.mediacia.kz/bg1.jpg"
+      title: "Supporting Kazakhstan's Civil Servants",
+      subtitle: "Advocating for the rights and well-being of public service professionals",
+      image: "https://images.unsplash.com/photo-1493397212122-2b85dda8106b?q=80&w=1600"
+    },
+    {
+      title: "Join Our Growing Community",
+      subtitle: "Connect with peers, access resources, and advance your career",
+      image: "https://images.unsplash.com/photo-1551038247-3d9af20df552?q=80&w=1600"
+    },
+    {
+      title: "Building a Better Future Together",
+      subtitle: "Working toward improved conditions and professional development",
+      image: "https://images.unsplash.com/photo-1466442929976-97f336a657be?q=80&w=1600"
     }
-    
   ];
   
   useEffect(() => {
@@ -86,23 +94,19 @@ const HomePage = () => {
             }`}
           >
             <div 
-              className="absolute inset-0 bg-cover" 
-              style={{ 
-                backgroundImage: `url(${slide.image})`,
-                backgroundPosition: 'center 30%'
-              }}
+              className="absolute inset-0 bg-cover bg-center" 
+              style={{ backgroundImage: `url(${slide.image})` }}
             >
               <div className="absolute inset-0 bg-black/40"></div>
-              <div className="absolute inset-y-0 left-0 w-2/3 bg-gradient-to-r from-[hsl(var(--primary))]/70 to-transparent"></div>
             </div>
             <div className="container-custom h-full flex flex-col justify-center relative z-10 animate-slide-in">
               <div className="max-w-2xl">
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">{slide.title}</h1>
                 <p className="text-xl text-white/90 mb-8">{slide.subtitle}</p>
                 <div className="flex flex-wrap gap-4">
-                  <Button className="btn-secondary">Вступить в профсоюз</Button>
+                  <Button className="btn-secondary">Join Us Today</Button>
                   <Button variant="outline" className="bg-transparent border-white text-white hover:bg-white/20">
-                    Узнать больше
+                    Learn More
                   </Button>
                 </div>
               </div>
@@ -173,7 +177,7 @@ const HomePage = () => {
                 Представляем и отстаиваем права членов профсоюза в органах власти, судах и перед работодателями.
                 </p>
                 <Link to="/services" className="text-kazakh-blue font-medium flex items-center gap-1 hover:underline">
-                  <span>Узнать больше</span>
+                  <span>Learn more</span>
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </CardContent>
@@ -189,7 +193,7 @@ const HomePage = () => {
                 Являемся стороной социального партнерства при подписании коллективных договоров и отраслевых соглашений..
                 </p>
                 <Link to="/services" className="text-kazakh-blue font-medium flex items-center gap-1 hover:underline">
-                  <span>Узнать больше</span>
+                  <span>Learn more</span>
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </CardContent>
@@ -205,7 +209,7 @@ const HomePage = () => {
                 Осуществляем профсоюзный контроль за условиями труда, охраной труда и безопасностью на рабочих местах.
                 </p>
                 <Link to="/services" className="text-kazakh-blue font-medium flex items-center gap-1 hover:underline">
-                  <span>Узнать больше</span>
+                  <span>Learn more</span>
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </CardContent>
@@ -253,7 +257,7 @@ const HomePage = () => {
                   <h3 className="text-xl font-bold mb-3">{news.title}</h3>
                   <p className="text-gray-600 mb-4 flex-grow">{news.excerpt}</p>
                   <Link to={`/news/${news.id}`} className="text-kazakh-blue font-medium flex items-center gap-1 hover:underline mt-auto">
-                    <span>Читать далее</span>
+                    <span>Read more</span>
                     <ArrowRight className="h-4 w-4" />
                   </Link>
                 </CardContent>
@@ -359,7 +363,7 @@ const HomePage = () => {
             </p>
             <Button className="btn-secondary flex items-center gap-2 mx-auto">
               <Phone className="h-5 w-5" />
-              <span>Свяжитесь с нами</span>
+              <span>Contact Us</span>
             </Button>
           </div>
         </div>

@@ -359,7 +359,7 @@ const HomePage = () => {
             </p>
             <Button className="btn-secondary flex items-center gap-2 mx-auto">
               <Phone className="h-5 w-5" />
-              <span>Свяжитесь с нами</span>
+              <span>Написать нам</span>
             </Button>
           </div>
         </div>

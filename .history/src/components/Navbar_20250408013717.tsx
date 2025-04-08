@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [language, setLanguage] = useState("ҚАЗ");
+  const [language, setLanguage] = useState("EN");
   
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
@@ -22,11 +22,11 @@ const Navbar = () => {
     <nav className="bg-white shadow-sm sticky top-0 z-50">
       <div className="container-custom flex justify-between items-center h-20">
         <Link to="/" className="flex items-center">
-          <div className="block">
+          <div className="hidden md:block">
             <img 
               src="/lovable-uploads/b68f6104-79af-4007-a0f9-95a12707a530.png" 
               alt="Отраслевой профессиональный союз работников государственных, банковских учреждений и общественного обслуживания"
-              className="h-16 md:h-28 py-2 md:py-5"
+              className="h-20"
             />
           </div>
         </Link>
@@ -34,10 +34,11 @@ const Navbar = () => {
         {/* Desktop Navigation */}
         <div className="hidden md:flex space-x-2">
           <Link to="/" className="nav-link nav-link-active">Главная</Link>
-          <Link to="/about" className="nav-link">О нас</Link>
-          <Link to="/services" className="nav-link">Деятельность</Link>
-          <Link to="/news" className="nav-link">Новости</Link>
-          <Link to="/contact" className="nav-link">Контакты</Link>
+          <Link to="/about" className="nav-link">About Us</Link>
+          <Link to="/services" className="nav-link">Member Services</Link>
+          <Link to="/news" className="nav-link">News & Updates</Link>
+          <Link to="/join" className="nav-link">Join Us</Link>
+          <Link to="/contact" className="nav-link">Contact</Link>
         </div>
         
         <div className="hidden md:flex items-center space-x-4">
@@ -51,7 +52,7 @@ const Navbar = () => {
             <span>{language}</span>
           </Button>
           
-          <Button className="btn-primary">Личный кабинет</Button>
+          <Button className="btn-primary">Member Login</Button>
         </div>
         
         {/* Mobile menu button */}
@@ -79,13 +80,13 @@ const Navbar = () => {
       {isMenuOpen && (
         <div className="md:hidden bg-white border-t">
           <div className="container-custom py-4 flex flex-col space-y-3">
-            <Link to="/" className="nav-link nav-link-active py-2">Главная</Link>
-            <Link to="/about" className="nav-link py-2">О нас</Link>
-            <Link to="/services" className="nav-link py-2">Деятельность</Link>
-            <Link to="/news" className="nav-link py-2">Новости</Link>
-            
-            <Link to="/contact" className="nav-link py-2">Контакты</Link>
-            <Button className="btn-primary w-full">Личный кабинет</Button>
+            <Link to="/" className="nav-link nav-link-active py-2">Home</Link>
+            <Link to="/about" className="nav-link py-2">About Us</Link>
+            <Link to="/services" className="nav-link py-2">Member Services</Link>
+            <Link to="/news" className="nav-link py-2">News & Updates</Link>
+            <Link to="/join" className="nav-link py-2">Join Us</Link>
+            <Link to="/contact" className="nav-link py-2">Contact</Link>
+            <Button className="btn-primary w-full">Member Login</Button>
           </div>
         </div>
       )}

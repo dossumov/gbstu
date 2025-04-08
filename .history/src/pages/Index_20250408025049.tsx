@@ -58,9 +58,9 @@ const HomePage = () => {
   const heroSlides = [
     
     {
-      title: "Защищаем ваши права",
-      subtitle: "Мы отстаиваем ваши трудовые права, гарантируем справедливость и помогаем в решении конфликтов.",
-      image: "http://gbstu.mediacia.kz/bg1.jpg"
+      title: "Join Our Growing Community",
+      subtitle: "Connect with peers, access resources, and advance your career",
+      image: "https://tripplanet.ru/wp-content/uploads/asia/kazakhstan/astana/dostoprimechatelnosti-astany-nur-sultana.jpg"
     }
     
   ];
@@ -86,23 +86,19 @@ const HomePage = () => {
             }`}
           >
             <div 
-              className="absolute inset-0 bg-cover" 
-              style={{ 
-                backgroundImage: `url(${slide.image})`,
-                backgroundPosition: 'center 30%'
-              }}
+              className="absolute inset-0 bg-cover bg-center" 
+              style={{ backgroundImage: `url(${slide.image})` }}
             >
               <div className="absolute inset-0 bg-black/40"></div>
-              <div className="absolute inset-y-0 left-0 w-2/3 bg-gradient-to-r from-[hsl(var(--primary))]/70 to-transparent"></div>
             </div>
             <div className="container-custom h-full flex flex-col justify-center relative z-10 animate-slide-in">
               <div className="max-w-2xl">
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">{slide.title}</h1>
                 <p className="text-xl text-white/90 mb-8">{slide.subtitle}</p>
                 <div className="flex flex-wrap gap-4">
-                  <Button className="btn-secondary">Вступить в профсоюз</Button>
+                  <Button className="btn-secondary">Join Us Today</Button>
                   <Button variant="outline" className="bg-transparent border-white text-white hover:bg-white/20">
-                    Узнать больше
+                    Learn More
                   </Button>
                 </div>
               </div>
@@ -173,7 +169,7 @@ const HomePage = () => {
                 Представляем и отстаиваем права членов профсоюза в органах власти, судах и перед работодателями.
                 </p>
                 <Link to="/services" className="text-kazakh-blue font-medium flex items-center gap-1 hover:underline">
-                  <span>Узнать больше</span>
+                  <span>Learn more</span>
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </CardContent>
@@ -189,7 +185,7 @@ const HomePage = () => {
                 Являемся стороной социального партнерства при подписании коллективных договоров и отраслевых соглашений..
                 </p>
                 <Link to="/services" className="text-kazakh-blue font-medium flex items-center gap-1 hover:underline">
-                  <span>Узнать больше</span>
+                  <span>Learn more</span>
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </CardContent>
@@ -205,7 +201,7 @@ const HomePage = () => {
                 Осуществляем профсоюзный контроль за условиями труда, охраной труда и безопасностью на рабочих местах.
                 </p>
                 <Link to="/services" className="text-kazakh-blue font-medium flex items-center gap-1 hover:underline">
-                  <span>Узнать больше</span>
+                  <span>Learn more</span>
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </CardContent>
@@ -359,7 +355,7 @@ const HomePage = () => {
             </p>
             <Button className="btn-secondary flex items-center gap-2 mx-auto">
               <Phone className="h-5 w-5" />
-              <span>Свяжитесь с нами</span>
+              <span>Написать нам</span>
             </Button>
           </div>
         </div>

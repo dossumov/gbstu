@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, FileText, Book, Users, Check, Calendar, Phone } from "lucide-react";
@@ -10,45 +11,45 @@ import Footer from "@/components/Footer";
 const newsList = [
   {
     id: 1,
-    title: "Встреча в Маркакольском районе ВКО",
-    date: "4 апреля 2025",
-    excerpt: "Председатель ВКОФ ОО «Казахстанский отраслевой профсоюз работников культуры, спорта, туризма и информации» Т. Тусупбеков и председатель ВКОФ ОО «Отраслевой профсоюз….",
-    image: "https://gbstu.kz/wp-content/uploads/2025/04/1-1-720x405.jpg"
+    title: "New Worker Protection Legislation Passed",
+    date: "April 5, 2025",
+    excerpt: "The government approved new legislation enhancing civil servant protections in workplace environments.",
+    image: "https://images.unsplash.com/photo-1551038247-3d9af20df552?q=80&w=800"
   },
   {
     id: 2,
-    title: "Отчётно-выборная конференция Жамбылского филиала",
-    date: "28 марта 2025",
-    excerpt: "28 марта 2025 года состоялась XXVIII отчётно-выборная конференция Жамбылского филиала Отраслевого профсоюза работников государственных, банковских учреждений и общественного обслуживания «Қызмет».…",
-    image: "https://gbstu.kz/wp-content/uploads/2025/04/ecbed31e-7b5d-4091-a28a-f242e0b64269-720x405.jpg"
+    title: "Upcoming Pension Reform Workshop",
+    date: "April 3, 2025",
+    excerpt: "Join our pension reform workshop to learn about changes and how they affect your benefits.",
+    image: "https://images.unsplash.com/photo-1466442929976-97f336a657be?q=80&w=800"
   },
   {
     id: 3,
-    title: "Соблюдение рабочего времени находится на контроле",
-    date: "27 марта 2025",
-    excerpt: "Департаментом Агентства Республики Казахстан по делам государственной службы по Карагандинской области совместно с заместителем председателя областного Профсоюзного Центра Федерации профсоюзов…",
-    image: "https://gbstu.kz/wp-content/uploads/2025/03/486a56b2-cb6f-4d62-9313-b3096dcf0e92-1-720x405.jpg"
+    title: "Annual Member Conference Announced",
+    date: "March 30, 2025",
+    excerpt: "Save the date for our annual member conference taking place September 15-17 in Astana.",
+    image: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?q=80&w=800"
   }
 ];
 
 const events = [
   {
     id: 1,
-    title: "Съезд ",
-    date: "15 апреля 2025",
-    location: "Астана, Конференц-холл"
+    title: "Legal Workshop: New Labor Regulations",
+    date: "April 15, 2025",
+    location: "Astana, Conference Hall B"
   },
   {
     id: 2,
-    title: "Обучение трудовому законодательству",
-    date: "22 апреля, 2025",
-    location: "Алматы"
+    title: "Member Benefits Information Session",
+    date: "April 22, 2025",
+    location: "Almaty, Regional Office"
   },
   {
     id: 3,
-    title: "Молодежный форум",
-    date: "5-7 мая, 2025",
-    location: "Курорт Боровое"
+    title: "Leadership Training Program",
+    date: "May 5-7, 2025",
+    location: "Shymkent, Training Center"
   }
 ];
 
@@ -56,13 +57,21 @@ const HomePage = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   
   const heroSlides = [
-    
     {
-      title: "Защищаем ваши права",
-      subtitle: "Мы отстаиваем ваши трудовые права, гарантируем справедливость и помогаем в решении конфликтов.",
-      image: "http://gbstu.mediacia.kz/bg1.jpg"
+      title: "Supporting Kazakhstan's Civil Servants",
+      subtitle: "Advocating for the rights and well-being of public service professionals",
+      image: "https://images.unsplash.com/photo-1493397212122-2b85dda8106b?q=80&w=1600"
+    },
+    {
+      title: "Join Our Growing Community",
+      subtitle: "Connect with peers, access resources, and advance your career",
+      image: "https://images.unsplash.com/photo-1551038247-3d9af20df552?q=80&w=1600"
+    },
+    {
+      title: "Building a Better Future Together",
+      subtitle: "Working toward improved conditions and professional development",
+      image: "https://images.unsplash.com/photo-1466442929976-97f336a657be?q=80&w=1600"
     }
-    
   ];
   
   useEffect(() => {
@@ -86,23 +95,19 @@ const HomePage = () => {
             }`}
           >
             <div 
-              className="absolute inset-0 bg-cover" 
-              style={{ 
-                backgroundImage: `url(${slide.image})`,
-                backgroundPosition: 'center 30%'
-              }}
+              className="absolute inset-0 bg-cover bg-center" 
+              style={{ backgroundImage: `url(${slide.image})` }}
             >
               <div className="absolute inset-0 bg-black/40"></div>
-              <div className="absolute inset-y-0 left-0 w-2/3 bg-gradient-to-r from-[hsl(var(--primary))]/70 to-transparent"></div>
             </div>
             <div className="container-custom h-full flex flex-col justify-center relative z-10 animate-slide-in">
               <div className="max-w-2xl">
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">{slide.title}</h1>
                 <p className="text-xl text-white/90 mb-8">{slide.subtitle}</p>
                 <div className="flex flex-wrap gap-4">
-                  <Button className="btn-secondary">Вступить в профсоюз</Button>
+                  <Button className="btn-secondary">Join Us Today</Button>
                   <Button variant="outline" className="bg-transparent border-white text-white hover:bg-white/20">
-                    Узнать больше
+                    Learn More
                   </Button>
                 </div>
               </div>
@@ -142,7 +147,7 @@ const HomePage = () => {
             </p>
             <div className="flex justify-center">
               <Button variant="outline" className="btn-outline flex items-center gap-2">
-                <span>Подробнее о нас</span>
+                <span>About Our Union</span>
                 <ArrowRight className="h-4 w-4" />
               </Button>
             </div>
@@ -155,10 +160,10 @@ const HomePage = () => {
         <div className="container-custom">
           <div className="text-center mb-12">
             <span className="inline-block px-4 py-1 bg-kazakh-blue/10 text-kazakh-blue rounded-full text-sm font-medium mb-4">
-              Преимущества для наших членов
+              Member Benefits
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-kazakh-dark">
-              Как мы помогаем нашим членам профсоюза
+              How We Support Our Members
             </h2>
           </div>
           
@@ -168,12 +173,13 @@ const HomePage = () => {
                 <div className="w-12 h-12 bg-kazakh-blue/10 rounded-lg flex items-center justify-center mb-4">
                   <FileText className="h-6 w-6 text-kazakh-blue" />
                 </div>
-                <h3 className="text-xl font-bold mb-3">Защищаем права и интересы</h3>
+                <h3 className="text-xl font-bold mb-3">Legal Representation</h3>
                 <p className="text-gray-600 mb-4">
-                Представляем и отстаиваем права членов профсоюза в органах власти, судах и перед работодателями.
+                  Expert legal advice and representation for workplace issues, disciplinary proceedings, 
+                  and employment disputes.
                 </p>
                 <Link to="/services" className="text-kazakh-blue font-medium flex items-center gap-1 hover:underline">
-                  <span>Узнать больше</span>
+                  <span>Learn more</span>
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </CardContent>
@@ -184,12 +190,13 @@ const HomePage = () => {
                 <div className="w-12 h-12 bg-kazakh-gold/10 rounded-lg flex items-center justify-center mb-4">
                   <Book className="h-6 w-6 text-kazakh-gold" />
                 </div>
-                <h3 className="text-xl font-bold mb-3">Ведем переговоры и заключаем соглашения</h3>
+                <h3 className="text-xl font-bold mb-3">Professional Development</h3>
                 <p className="text-gray-600 mb-4">
-                Являемся стороной социального партнерства при подписании коллективных договоров и отраслевых соглашений..
+                  Access to training workshops, educational resources, and career advancement opportunities 
+                  tailored for civil servants.
                 </p>
                 <Link to="/services" className="text-kazakh-blue font-medium flex items-center gap-1 hover:underline">
-                  <span>Узнать больше</span>
+                  <span>Learn more</span>
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </CardContent>
@@ -200,12 +207,13 @@ const HomePage = () => {
                 <div className="w-12 h-12 bg-kazakh-blue/10 rounded-lg flex items-center justify-center mb-4">
                   <Users className="h-6 w-6 text-kazakh-blue" />
                 </div>
-                <h3 className="text-xl font-bold mb-3">Контролируем соблюдение трудового законодательства</h3>
+                <h3 className="text-xl font-bold mb-3">Collective Bargaining</h3>
                 <p className="text-gray-600 mb-4">
-                Осуществляем профсоюзный контроль за условиями труда, охраной труда и безопасностью на рабочих местах.
+                  Strong representation in negotiations with government entities to secure better 
+                  wages, benefits, and working conditions.
                 </p>
                 <Link to="/services" className="text-kazakh-blue font-medium flex items-center gap-1 hover:underline">
-                  <span>Узнать больше</span>
+                  <span>Learn more</span>
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </CardContent>
@@ -214,7 +222,7 @@ const HomePage = () => {
           
           <div className="mt-12 text-center">
             <Link to="/services">
-              <Button className="btn-primary">Узнать больше</Button>
+              <Button className="btn-primary">View All Services</Button>
             </Link>
           </div>
         </div>
@@ -226,14 +234,14 @@ const HomePage = () => {
           <div className="flex justify-between items-center mb-12">
             <div>
               <span className="inline-block px-4 py-1 bg-kazakh-blue/10 text-kazakh-blue rounded-full text-sm font-medium mb-4">
-              Будьте в курсе событий
+                Stay Informed
               </span>
               <h2 className="text-3xl md:text-4xl font-bold text-kazakh-dark">
-                Новости и события
+                Latest News & Updates
               </h2>
             </div>
             <Link to="/news" className="hidden md:flex text-kazakh-blue font-medium items-center gap-1 hover:underline">
-              <span>Просмотреть все новости</span>
+              <span>View all news</span>
               <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
@@ -253,7 +261,7 @@ const HomePage = () => {
                   <h3 className="text-xl font-bold mb-3">{news.title}</h3>
                   <p className="text-gray-600 mb-4 flex-grow">{news.excerpt}</p>
                   <Link to={`/news/${news.id}`} className="text-kazakh-blue font-medium flex items-center gap-1 hover:underline mt-auto">
-                    <span>Читать далее</span>
+                    <span>Read more</span>
                     <ArrowRight className="h-4 w-4" />
                   </Link>
                 </CardContent>
@@ -275,9 +283,11 @@ const HomePage = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Upcoming Events */}
             <div>
-              
+              <span className="inline-block px-4 py-1 bg-kazakh-blue/10 text-kazakh-blue rounded-full text-sm font-medium mb-4">
+                Save the Date
+              </span>
               <h2 className="text-3xl font-bold text-kazakh-dark mb-6">
-              Предстоящие события
+                Upcoming Events
               </h2>
               
               <div className="space-y-4">
@@ -298,7 +308,7 @@ const HomePage = () => {
               <div className="mt-6">
                 <Link to="/events">
                   <Button variant="outline" className="btn-outline flex items-center gap-2">
-                    <span>Посмотреть календарь</span>
+                    <span>View Calendar</span>
                     <ArrowRight className="h-4 w-4" />
                   </Button>
                 </Link>
@@ -309,35 +319,39 @@ const HomePage = () => {
             <div className="bg-kazakh-blue text-white p-8 rounded-lg relative overflow-hidden">
               <div className="relative z-10">
                 <span className="inline-block px-4 py-1 bg-white/20 text-white rounded-full text-sm font-medium mb-4">
-                  Присоединяйтесь к нам
+                  Join Our Community
                 </span>
                 <h2 className="text-3xl font-bold mb-6">
-                  Становитесь членом нашего профсоюза уже сегодня
+                  Become a Member Today
                 </h2>
                 <p className="text-white/90 mb-6">
-                Присоединяйтесь к нашему растущему сообществу, насчитывающему более 150 000 работников государственных, банковских учреждений и общественного обслуживания. Вместе мы сможем достичь большего.
+                  Join our growing community of 15,000+ civil servants and enjoy exclusive benefits, resources,
+                  and representation. Together, we can achieve more.
                 </p>
                 
                 <ul className="space-y-3 mb-8">
                   <li className="flex items-center gap-2">
                     <Check className="h-5 w-5 text-kazakh-gold" />
-                    <span>Правовая защита и помощь</span>
+                    <span>Legal protection and assistance</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <Check className="h-5 w-5 text-kazakh-gold" />
-                    <span>Возможности профессионального развития</span>
+                    <span>Professional development opportunities</span>
                   </li>
-                  
                   <li className="flex items-center gap-2">
                     <Check className="h-5 w-5 text-kazakh-gold" />
-                    <span>Специальные скидки и льготы</span>
+                    <span>Healthcare and wellness programs</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="h-5 w-5 text-kazakh-gold" />
+                    <span>Special discounts and financial benefits</span>
                   </li>
                 </ul>
                 
                 <div className="flex flex-wrap gap-4">
-                  <Button className="btn-secondary">Вступить в профсоюз</Button>
+                  <Button className="btn-secondary">Join Now</Button>
                   <Button variant="outline" className="bg-transparent border-white text-white hover:bg-white/20">
-                    Узнать больше
+                    Learn More
                   </Button>
                 </div>
               </div>
@@ -353,13 +367,14 @@ const HomePage = () => {
       <section className="section-padding bg-white">
         <div className="container-custom">
           <div className="bg-gradient-to-r from-kazakh-blue to-blue-600 rounded-xl p-8 md:p-12 text-white text-center">
-            <h2 className="text-2xl md:text-3xl font-bold mb-4">У Вас есть вопрос?</h2>
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">Have Questions About Membership?</h2>
             <p className="text-white/90 max-w-2xl mx-auto mb-8">
-            Мы готовы ответить на все ваши вопросы о защите трудовых прав и вступлении в профсоюз. Свяжитесь с нами прямо сейчас!
+              Our team is ready to answer any questions you may have about joining the union
+              or the benefits of membership. Reach out to us today!
             </p>
             <Button className="btn-secondary flex items-center gap-2 mx-auto">
               <Phone className="h-5 w-5" />
-              <span>Свяжитесь с нами</span>
+              <span>Contact Us</span>
             </Button>
           </div>
         </div>

@@ -45,15 +45,15 @@ const Footer = () => {
             <div className="space-y-4">
               <p className="flex items-start">
                 <MapPin className="h-5 w-5 mr-2 text-kazakh-blue shrink-0 mt-1" />
-                <span className="text-gray-600">Казахстан, Астана, <br></br>проспект Абая 38</span>
+                <span className="text-gray-600">Казахстан, Астана, проспект <br>Абая 38</span>
               </p>
               <p className="flex items-center">
                 <Phone className="h-5 w-5 mr-2 text-kazakh-blue" />
-                <span className="text-gray-600">+ 7 (7172) 64 34 96</span>
+                <span className="text-gray-600">+7 (7172) 12-34-56</span>
               </p>
               <p className="flex items-center">
                 <Mail className="h-5 w-5 mr-2 text-kazakh-blue" />
-                <span className="text-gray-600">info@gbstu.kz</span>
+                <span className="text-gray-600">info@civilservants-union.kz</span>
               </p>
             </div>
             <div className="mt-6 flex space-x-4">
@@ -72,8 +72,10 @@ const Footer = () => {
         
         <div className="border-t border-gray-200 pt-8 flex flex-col md:flex-row justify-between items-center">
           <div className="flex items-center mb-4 md:mb-0">
-            
-            <p className="text-sm text-gray-500">Общественное объединение «Отраслевой профессиональный союз работников государственных, банковских учреждений и общественного обслуживания Республики Казахстан»</p>
+            <div className="w-10 h-10 bg-kazakh-blue rounded-full flex items-center justify-center text-white font-bold text-sm mr-2">
+              ПС
+            </div>
+            <p className="text-sm text-gray-500">Профсоюз работников государственных учреждений Казахстана</p>
           </div>
           <div className="text-sm text-gray-500">
             © {new Date().getFullYear()} Все права защищены

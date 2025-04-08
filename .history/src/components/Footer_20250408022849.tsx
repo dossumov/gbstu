@@ -72,8 +72,10 @@ const Footer = () => {
         
         <div className="border-t border-gray-200 pt-8 flex flex-col md:flex-row justify-between items-center">
           <div className="flex items-center mb-4 md:mb-0">
-            
-            <p className="text-sm text-gray-500">Общественное объединение «Отраслевой профессиональный союз работников государственных, банковских учреждений и общественного обслуживания Республики Казахстан»</p>
+            <div className="w-10 h-10 bg-kazakh-blue rounded-full flex items-center justify-center text-white font-bold text-sm mr-2">
+              ПС
+            </div>
+            <p className="text-sm text-gray-500">Профсоюз работников государственных учреждений Казахстана</p>
           </div>
           <div className="text-sm text-gray-500">
             © {new Date().getFullYear()} Все права защищены
